@@ -3,7 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import SystemMessage, HumanMessage
 
 # 🔒 Secure API Key
-GOOGLE_API_KEY = st.secrets["AIzaSyBMCc42a-cWcpnG1TfCC830kbHG20dAqpo"]
+GOOGLE_API_KEY = "AIzaSyBMCc42a-cWcpnG1TfCC830kbHG20dAqpo"
 
 def get_travel_options(source, destination):
     system_prompt = SystemMessage(
