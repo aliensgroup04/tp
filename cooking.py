@@ -44,19 +44,20 @@ st.title("🍽️ Rasu Chef Assistant")
 # Store recipe data
 if "recipe" not in st.session_state:
     st.session_state.recipe = None
-    
-name=st.text_input("Enter Your Name")
 
-if st.button("Get Recipe") and name!="rasu"  and dish_name:
-    with st.spinner("Fetching recipe...⏳"):
-        st.markdown("Sorry! App is designed only for rasu")
-
-# Get main dish recipe
+# User input
+name = st.text_input("Enter Your Name", placeholder="E.g., Rasu")
 dish_name = st.text_input("Enter a dish name", placeholder="E.g., Pasta, Biryani")
 
-if st.button("Get Recipe") and name=="rasu"  and dish_name:
-    with st.spinner("Fetching recipe...⏳"):
-        st.session_state.recipe = chain.invoke({"dish_name": dish_name})
+# Validate name and fetch recipe
+if st.button("Get Recipe"):
+    if name.lower() != "rasu":
+        st.warning("Sorry! This app is designed only for Rasu.")
+    elif not dish_name:
+        st.warning("Please enter a dish name!")
+    else:
+        with st.spinner("Fetching recipe...⏳"):
+            st.session_state.recipe = chain.invoke({"dish_name": dish_name})
 
 # Display recipe
 if st.session_state.recipe:
