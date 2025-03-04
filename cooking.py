@@ -44,7 +44,12 @@ st.title("🍽️ Rasu Chef Assistant")
 # Store recipe data
 if "recipe" not in st.session_state:
     st.session_state.recipe = None
+    
 name=st.text_input("Enter Your Name")
+
+if st.button("Get Recipe") and name!="rasu"  and dish_name:
+    with st.spinner("Fetching recipe...⏳"):
+        st.markdown("Sorry! App is designed only for rasu")
 
 # Get main dish recipe
 dish_name = st.text_input("Enter a dish name", placeholder="E.g., Pasta, Biryani")
