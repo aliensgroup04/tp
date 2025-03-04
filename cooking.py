@@ -22,7 +22,7 @@ class Recipe(BaseModel):
 output_parser = PydanticOutputParser(pydantic_object=Recipe)
 
 # Load API key
-model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key="AIzaSyCogBF1UeDnQf-_S666ol9R6dBBtKmismE")
+model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key="AIzaSyBMCc42a-cWcpnG1TfCC830kbHG20dAqpo")
 
 # Prompt Template
 prompt_template = ChatPromptTemplate(
@@ -46,7 +46,7 @@ if "recipe" not in st.session_state:
     st.session_state.recipe = None
 
 # User input
-name = st.text_input("Enter Your Name", placeholder="E.g., Rasu")
+name = st.text_input("Enter Your Name", placeholder="Enter Your Name")
 dish_name = st.text_input("Enter a dish name", placeholder="E.g., Pasta, Biryani")
 
 # Validate name and fetch recipe
