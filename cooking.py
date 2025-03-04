@@ -39,7 +39,7 @@ prompt_template = ChatPromptTemplate(
 chain = prompt_template | model | output_parser
 
 # Streamlit UI
-st.title("🍽️ Chef Assistant")
+st.title("🍽️ Rasu Chef Assistant")
 
 # Store recipe data
 if "recipe" not in st.session_state:
@@ -47,8 +47,9 @@ if "recipe" not in st.session_state:
 
 # Get main dish recipe
 dish_name = st.text_input("Enter a dish name", placeholder="E.g., Pasta, Biryani")
+name=st.text_input("Enter Your Name")
 
-if st.button("Get Recipe") and dish_name:
+if st.button("Get Recipe") and name=="rasu"  and dish_name:
     with st.spinner("Fetching recipe...⏳"):
         st.session_state.recipe = chain.invoke({"dish_name": dish_name})
 
