@@ -46,7 +46,7 @@ if "recipe" not in st.session_state:
     st.session_state.recipe = None
 
 # User input
-name = st.text_input("Enter Your Name", placeholder="E.g., Rasu")
+name = st.text_input("Enter Your Name", placeholder="Your Name")
 dish_name = st.text_input("Enter a dish name", placeholder="E.g., Pasta, Biryani")
 
 # Validate name and fetch recipe
